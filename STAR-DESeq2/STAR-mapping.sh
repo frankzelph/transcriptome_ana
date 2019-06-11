@@ -18,7 +18,7 @@ do
 			 --alignMatesGapMax 100000 --outFilterMismatchNmax 0 \
 			 --outFileNamePrefix ./${item%%.*}.
 		# Count calling using featureCount
-		featureCounts -T 28 -g gene_name -s 0 -a GTFfile\
+		featureCounts -T 28 -g gene_name -s 0 -a $GTFfile\
 					  -o ${item%%.*}-cnt.txt ${item%%.*}.Aligned.out.sam
 	fi
 done
