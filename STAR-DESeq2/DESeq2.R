@@ -43,7 +43,8 @@ DEG_analysis <- function(counts_file, design_table, result_file) {
 	keep <- !is.na(res$padj)
 	res <- res[keep,]
 	# output results
-	write.table(res, file=result_file, quote=F, sep='\t', )
+	res <- data.frame(Geneid=rownames(res), res)
+	write.table(res, file=result_file, quote=F, sep='\t', row.names=F)
 }
 
 # Load parameters
