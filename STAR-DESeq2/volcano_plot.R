@@ -29,6 +29,7 @@ ggplot(res, aes(x=log2FoldChange, y=-log10(padj))) +
 	labs(title="DEG analysis", x="Log2 Fold Change", y="-Log10(Padj)") +
 	theme(title = element_text(size=18), axis.text = element_text(size=12),plot.title = element_text(hjust = 0.5)) +
 	geom_text_repel(data=filter(res, is.element(Geneid, Targets)), aes(label=Geneid), size=6)
+	
 
 dev.off()
 
