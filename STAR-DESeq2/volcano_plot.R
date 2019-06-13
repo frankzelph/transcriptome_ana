@@ -16,6 +16,7 @@ FIG_FILE <- args[2]
 svg(filename=paste(FIG_FILE, ".svg", sep=""), width=8, height=7)
 
 res <- read.table(DATA_FILE,sep='\t',header=T)
+res$log2FoldChange <- -res$log2FoldChange  # use it accordingly.
 res <- mutate(res, class=ifelse((log2FoldChange < -2 & padj < 0.01),"Down", ifelse((log2FoldChange > 2 & padj < 0.01),"Up","Not_sig.")))
 
 # Select some genes to label in the figure
